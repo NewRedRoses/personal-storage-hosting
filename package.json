@@ -1,0 +1,15 @@
+{
+  "name": "file-uploader",
+  "version": "1.0.0",
+  "description": "A simple webapp for replicating the basic utility of personal cloud storage services",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
