@@ -2,7 +2,7 @@
   "name": "file-uploader",
   "version": "1.0.0",
   "description": "A simple webapp for replicating the basic utility of personal cloud storage services",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "dev": "node --watch app.js"
@@ -15,7 +15,9 @@
     "express": "^4.21.1",
     "express-session": "^1.18.1",
     "passport": "^0.7.0",
-    "passport-local": "^1.0.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
     "prisma": "^5.21.1"
   }
 }
