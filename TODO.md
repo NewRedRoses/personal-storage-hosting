@@ -2,8 +2,8 @@
 
 Below is an overview of the current stage for this project. These instructions are based on [the assignment instructions for this project by the Odin Project](https://www.theodinproject.com/lessons/nodejs-file-uploader#project-solution)
 
-- [ ] **Initialize Express** 
-- [ ] **Install main dependencies (`EJS`,`Prisma`, `Passport.js`)**
+- [x] **Initialize Express** 
+- [x] **Install main dependencies (`EJS`,`Prisma`, `Passport.js`)**
 - [ ] **Set up session post-login with `Passport.js`**
   - Use [prisma session store library](https://github.com/kleydon/prisma-session-store#readme) for database persistence with the sessions. 
 - [ ] **Add form where logged-in users can upload files**.
