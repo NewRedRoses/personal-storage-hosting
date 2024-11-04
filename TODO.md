@@ -4,6 +4,7 @@ Below is an overview of the current stage for this project. These instructions a
 
 - [x] **Initialize Express** 
 - [x] **Install main dependencies (`EJS`,`Prisma`, `Passport.js`)**
+- [x] **Add a login page**
 - [ ] **Set up session post-login with `Passport.js`**
   - Use [prisma session store library](https://github.com/kleydon/prisma-session-store#readme) for database persistence with the sessions. 
 - [ ] **Add form where logged-in users can upload files**.
