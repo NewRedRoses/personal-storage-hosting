@@ -8,7 +8,8 @@
   <body>
     <% if (currentUser) { %>
     <h1>Hello, <%= currentUser.username %></h1>
-    <%- include("./partials/fileUpload.ejs")%> <% } else { %>
+    <%- include("./partials/createFolder.ejs") %> <%-
+    include("./partials/fileUpload.ejs")%> <% } else { %>
     <h1>Please login</h1>
     <a href="/login">log in</a>
     <% } %>
