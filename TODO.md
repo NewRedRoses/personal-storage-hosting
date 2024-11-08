@@ -8,7 +8,7 @@ Below is an overview of the current stage for this project. These instructions a
 - [x] **Add Prisma support**
 - [x] **Set up session post-login with `Passport.js`**
   - Use [prisma session store library](https://github.com/kleydon/prisma-session-store#readme) for database persistence with the sessions. 
-- [ ] **Add form where logged-in users can upload files**.
+- [x] **Add form where logged-in users can upload files**.
   - Start by storing the file locally in the filesystem but later on the [multer middleware](https://github.com/expressjs/multer) will be used once other stuff gets implemented.
 - [ ] **Add support for folder & CRUD operations**
   - [ ] Add ability to create folders. 
