@@ -34,3 +34,10 @@ model Folder {
   creator_id   User     @relation(fields: [id], references: [id])
   userId       Int
 }
+
+model Session {
+  id        String   @id
+  sid       String   @unique
+  data      String
+  expiresAt DateTime
+}
