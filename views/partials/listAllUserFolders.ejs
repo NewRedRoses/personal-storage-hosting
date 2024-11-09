@@ -1,0 +1,9 @@
+<div class="folders-container">
+<ul>
+      <% folders.map((folder)=> { %>
+      <li>
+        <a href=<%=`/folder/${folder.id}/view`%>><%= folder.name %></a>
+      </li>
+      <% }) %>
+</ul>
+</div>
