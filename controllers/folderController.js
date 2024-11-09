@@ -50,4 +50,29 @@ const folderViewGet = async (req, res, next) => {
   });
 };
 
-module.exports = { createFolderPost, getAllFolders, folderViewGet };
+const folderRenamePost = async (req, res, next) => {
+  if (!req.user) {
+    throw new Error("Not logged in");
+  }
+
+  try {
+    await prisma.folder.update({
+      where: {
+        id: parseInt(req.params.folder_id),
+      },
+      data: {
+        name: req.body.folder_name,
+      },
+    });
+    res.redirect(`/folder/${req.params.folder_id}/view`);
+  } catch (error) {
+    console.error("Error renaming folder: ", error);
+  }
+};
+
+module.exports = {
+  createFolderPost,
+  getAllFolders,
+  folderViewGet,
+  folderRenamePost,
+};
