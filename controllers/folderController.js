@@ -36,4 +36,18 @@ const getAllFolders = async (req, res, next) => {
   }
 };
 
-module.exports = { createFolderPost, getAllFolders };
+const folderViewGet = async (req, res, next) => {
+  const folder = await prisma.folder.findFirst({
+    where: {
+      id: parseInt(req.params.folder_id),
+    },
+  });
+
+  res.render("folderView", {
+    folderName: folder.name,
+    folderId: folder.id,
+    folderCreatorId: folder.userId,
+  });
+};
+
+module.exports = { createFolderPost, getAllFolders, folderViewGet };
