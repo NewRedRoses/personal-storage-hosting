@@ -10,7 +10,6 @@ passport.use(
       const user = await prisma.user.findUnique({
         where: { username: username },
       });
-      console.log(user, username);
 
       if (!user) {
         return done(null, false, { message: "Incorrect username" });
@@ -47,7 +46,7 @@ passport.deserializeUser(async (id, done) => {
 });
 
 const loginRouterGet = async (req, res, next) => {
-  res.render("loginPage");
+  req.user ? res.redirect("/") : res.render("loginPage");
 };
 
 const loginRouterPost = async (req, res, next) => {
