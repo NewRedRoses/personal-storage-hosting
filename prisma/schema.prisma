@@ -15,14 +15,15 @@ model User {
   username     String?  @unique
   password     String
   created_date DateTime @default(now())
-  Folder       Folder[]
-  File         File[]
+  folders      Folder[]
+  files        File[]
 }
 
 model File {
   id          Int      @id @default(autoincrement())
   name        String
-  uploader_id User     @relation(fields: [id], references: [id])
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
   upload_date DateTime @default(now())
   folder_id   Int      @default(0)
 }
@@ -31,8 +32,8 @@ model Folder {
   id           Int      @id @default(autoincrement())
   name         String
   created_date DateTime @default(now())
-  creator_id   User     @relation(fields: [id], references: [id])
   userId       Int
+  user         User     @relation(fields: [userId], references: [id])
 }
 
 model Session {
