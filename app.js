@@ -39,10 +39,12 @@ app.use((req, res, next) => {
 const loginRouter = require("./routes/loginRouter");
 const homeRouter = require("./routes/homeRouter");
 const folderRouter = require("./routes/folderRouter");
+const fileRouter = require("./routes/fileRouter");
 
 app.use("/login", loginRouter);
 app.use("/", homeRouter);
 app.use("/folder", folderRouter);
+app.use("/file", fileRouter);
 
 app.listen(PORT, () => {
   console.log(`Launched on port: ${PORT}`);
