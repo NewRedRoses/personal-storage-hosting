@@ -8,11 +8,11 @@ const createFolderPost = async (req, res, next) => {
   try {
     await prisma.folder.create({
       data: {
-        name: "new folder!",
+        name: req.body.folder_name,
         user: { connect: { id: req.user.id } },
       },
     });
-    res.status(201).send("Folder created successfully!");
+    res.redirect("/");
   } catch (error) {
     console.error("Error creating folder: ", error);
     next(error);
