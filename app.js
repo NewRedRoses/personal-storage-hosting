@@ -37,11 +37,13 @@ app.use((req, res, next) => {
 });
 
 const loginRouter = require("./routes/loginRouter");
+const signupRouter = require("./routes/signupRouter");
 const homeRouter = require("./routes/homeRouter");
 const folderRouter = require("./routes/folderRouter");
 const fileRouter = require("./routes/fileRouter");
 
 app.use("/login", loginRouter);
+app.use("/signup", signupRouter);
 app.use("/", homeRouter);
 app.use("/folder", folderRouter);
 app.use("/file", fileRouter);
