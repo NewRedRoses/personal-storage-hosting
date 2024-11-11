@@ -1,11 +1,20 @@
 const { Router } = require("express");
 const fileRouter = Router();
-
 const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
 
-const { uploadFile } = require("../controllers/fileController");
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, `uploads/${req.user.username}/`);
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + "-" + file.originalname.replace(/\s/g, ""));
+  },
+});
 
-fileRouter.post("/upload", upload.single("file"), uploadFile);
+const upload = multer({ storage: storage });
 
+const { uploadFile, downloadFile } = require("../controllers/fileController");
+
+// fileRouter.post("/upload", upload.single("file"), uploadFile);
+fileRouter.get("/:file_id/download", downloadFile);
 module.exports = fileRouter;

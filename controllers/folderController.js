@@ -41,12 +41,16 @@ const folderViewGet = async (req, res, next) => {
     where: {
       id: parseInt(req.params.folder_id),
     },
+    include: {
+      files: true,
+    },
   });
-
+  const { files } = folder;
   res.render("folderView", {
     folderName: folder.name,
     folderId: folder.id,
     folderCreatorId: folder.userId,
+    files: files,
   });
 };
 
