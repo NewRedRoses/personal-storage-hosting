@@ -8,9 +8,13 @@
   <body>
     <% if (currentUser) { %>
     <h1>Hello, <%= currentUser.username %></h1>
-    <%- include("./partials/createFolder.ejs") %> <%-
-    include("./partials/fileUpload.ejs") %>
-    <%-include("./partials/listAllUserFolders.ejs") %> <% } else { %>
+    <h2>Folders</h2>
+        <%- include("./partials/createFolder.ejs") %> 
+        <%-include("./partials/listAllUserFolders.ejs") %> 
+    <h2>Files</h2>
+        <%- // include("./partials/fileUpload.ejs") %> 
+        <p>Coming soon! - Files will be listed here</p>
+    <% } else { %>
     <h1>Please login</h1>
     <a href="/login">log in</a>
     <% } %>

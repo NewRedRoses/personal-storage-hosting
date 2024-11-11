@@ -8,12 +8,13 @@
 <body>
     <h1> <%= folderName %> </h1>
     <div class="rename-container">
-        <form action=<%=`rename`%> method="post" >
+        <form action=<%=`rename`%> method="post">
             <label for="folder_name">Rename folder: </label>
             <input type="text" id="folder_name" name="folder_name" placeholder=<%= folderName %> >
             <button type="submit">Update</button>
         </form>
     </div>
-    <p>  <%= folderId %> </p>
+    <%- include("./partials/fileUpload.ejs") %>
+    <%- include("./partials/listAllFolderFiles.ejs") %>
 </body>
 </html>

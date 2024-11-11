@@ -1,0 +1,12 @@
+<% if (files.length != 0) { %> 
+        <ul class="files-container">
+            <% files.map((file) => { %>
+                <% console.log(file.id) %>
+                <li class="file-item"> 
+                    <a href=<%=`/file/${file.id}/download`%> class="file-item-content">
+                        <%= file.name %>
+                    </a> 
+                </li>
+            <%  }) %>
+        </ul>
+<% } %>
