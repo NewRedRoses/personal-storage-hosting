@@ -12,7 +12,7 @@ datasource db {
 
 model User {
   id           Int      @id @default(autoincrement())
-  username     String?  @unique
+  username     String   @unique
   password     String
   created_date DateTime @default(now())
   folders      Folder[]
@@ -25,7 +25,8 @@ model File {
   userId      Int
   user        User     @relation(fields: [userId], references: [id])
   upload_date DateTime @default(now())
-  folder_id   Int      @default(0)
+  folderId    Int
+  folder      Folder   @relation(fields: [folderId], references: [id])
 }
 
 model Folder {
@@ -34,6 +35,7 @@ model Folder {
   created_date DateTime @default(now())
   userId       Int
   user         User     @relation(fields: [userId], references: [id])
+  files        File[]
 }
 
 model Session {
