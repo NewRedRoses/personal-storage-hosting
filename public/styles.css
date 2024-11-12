@@ -1,0 +1,17 @@
+body {
+  background-color: #2d3436;
+  color: #dfe6e9;
+}
+a {
+  color: #2d3436;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1.2em;
+  background-color: #dfe6e9;
+  border-radius: 5px;
+  padding: 5px;
+}
+li {
+  padding-bottom: 10px;
+}
