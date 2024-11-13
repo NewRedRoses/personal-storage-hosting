@@ -1,9 +1,14 @@
-<div class="folders-container">
-<ul>
+<ul class="folders-container">
       <% folders.map((folder)=> { %>
       <li>
-        <a href=<%=`/folder/${folder.id}/view`%>><%= folder.name %></a>
+        <a href=<%=`/folder/${folder.id}/view`%> class="folder-item">
+          <i data-lucide="folder" class="icon"></i>
+          <%= folder.name %>
+        </a>
       </li>
       <% }) %>
 </ul>
-</div>
+<script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+</script>

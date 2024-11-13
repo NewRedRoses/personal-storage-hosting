@@ -1,6 +1,8 @@
 const { PrismaClient } = require(`@prisma/client`);
 const prisma = new PrismaClient();
 
+const { unlink } = require("node:fs");
+
 const createFolderPost = async (req, res, next) => {
   if (!req.user) {
     throw new Error("Must be logged in!");
@@ -45,7 +47,9 @@ const folderViewGet = async (req, res, next) => {
       files: true,
     },
   });
+
   const { files } = folder;
+
   res.render("folderView", {
     folderName: folder.name,
     folderId: folder.id,
@@ -74,9 +78,42 @@ const folderRenamePost = async (req, res, next) => {
   }
 };
 
+const deleteFolderPost = async (req, res, next) => {
+  try {
+    // Delete files from drive
+    const filesToDelete = await prisma.file.findMany({
+      where: {
+        folderId: parseInt(req.params.folder_id),
+      },
+    });
+
+    filesToDelete.forEach((file) => {
+      unlink(`./uploads/${req.user.username}/${file.name}`, (err) => {
+        if (err) throw err;
+      });
+    });
+    // Delete file & folder records from db
+    await prisma.file.deleteMany({
+      where: {
+        folderId: parseInt(req.params.folder_id),
+      },
+    });
+    await prisma.folder.delete({
+      where: {
+        id: parseInt(req.params.folder_id),
+      },
+    });
+
+    res.redirect("/");
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 module.exports = {
   createFolderPost,
   getAllFolders,
   folderViewGet,
   folderRenamePost,
+  deleteFolderPost,
 };
