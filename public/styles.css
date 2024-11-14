@@ -93,3 +93,41 @@ li {
   background-color: #d63031;
   color: #dfe6e9;
 }
+.file-name-container,
+.file-size-container,
+.file-date-container {
+  display: flex;
+  gap: 10px;
+}
+.buttons-container {
+  display: flex;
+  gap: 10px;
+}
+.delete-file-btn {
+  background-color: #d63031;
+  color: #dfe6e9;
+  border: 0;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.download-file-btn,
+.delete-file-btn {
+  padding: 2.5px 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.delete-file-btn:hover {
+  background-color: #e43e3e;
+  color: #dfe6e9;
+  cursor: pointer;
+}
+.download-file-btn-container {
+}
+.download-file-btn {
+  display: flex;
+  align-items: center;
+}
+.download-file-btn:hover {
+  cursor: pointer;
+}
