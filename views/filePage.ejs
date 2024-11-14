@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>File page</title>
+</head>
+<body>
+    <%- include("./partials/navbar.ejs") %>
+    <div class="content">
+        <div class="file-name-container">
+            <div class="file-name-left">
+                <i data-lucide="file" class="icon" id="file-icon"></i>
+                <label for="file-icon"><b>File Name:</b></label>
+            </div>
+            <div class="file-name-right">
+                <code><%- file.name %></code>
+            </div>
+        </div>
+        <div class="file-size-container">
+            <div class="file-size-left">
+                <i data-lucide="weight" class="icon" id="weight-icon"></i>
+                <label for="weight-icon"><b>Size:</b></label>
+            </div>
+            <div class="file-size-right">
+                <%- file.size %> Mbs
+            </div>
+        </div>
+        <div class="file-date-container">
+        <i data-lucide="calendar" class="icon"></i>
+        <label for="weight-icon"><b>Date:</b></label>
+        <span><%- file.upload_date.toLocaleDateString() %></span>
+        
+    </div>
+    <div class="buttons-container">
+            <div class="delete-file-btn-container">
+                <button class="delete-file-btn">
+                    <i data-lucide="trash-2" class="icon" ></i>
+                    Delete</button>
+            </div>
+            <div class="download-file-btn-container">
+                
+                <button class="download-file-btn">
+                    <i data-lucide="file-down" class="icon">Download</i>
+                    Download</button>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>lucide.createIcons(); </script>
+</html>

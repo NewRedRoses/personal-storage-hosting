@@ -1,6 +1,8 @@
 const { PrismaClient } = require(`@prisma/client`);
 const prisma = new PrismaClient();
 
+const fs = require("fs");
+
 const uploadFile = async (req, res, next) => {
   await prisma.file.create({
     data: {
@@ -26,4 +28,15 @@ const downloadFile = async (req, res, next) => {
   });
 };
 
-module.exports = { uploadFile, downloadFile };
+const filePageGet = async (req, res, next) => {
+  const fileDbDetails = await prisma.file.findFirst({
+    where: {
+      id: parseInt(req.params.file_id),
+    },
+  });
+  const { size } = fs.statSync(`uploads/mark/${fileDbDetails.name}`);
+  fileDbDetails.size = (size / 1000000).toFixed(2);
+  res.render("filePage", { file: fileDbDetails });
+};
+
+module.exports = { uploadFile, downloadFile, filePageGet };
