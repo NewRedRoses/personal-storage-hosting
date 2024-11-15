@@ -3,6 +3,9 @@ const prisma = new PrismaClient();
 const { getAllFolders } = require("../controllers/folderController");
 
 const homeRouterGet = async (req, res, next) => {
+  if (!req.user) {
+    return res.redirect("/login");
+  }
   const folders = await getAllFolders(req, res, next);
   const files = await prisma.file.findMany({
     where: {
