@@ -151,3 +151,12 @@ li {
   flex-direction: column;
   gap: 10px;
 }
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.login-form input,
+.login-form button {
+  max-width: 250px;
+}
