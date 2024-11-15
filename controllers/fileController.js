@@ -1,17 +1,34 @@
 const { PrismaClient } = require(`@prisma/client`);
 const prisma = new PrismaClient();
+const cloudinary = require("cloudinary").v2;
 
 const fs = require("fs");
 
+cloudinary.config({
+  cloud_name: process.env.cloudinary_cloud_name,
+  api_key: process.env.cloudinary_api_key,
+  api_secret: process.env.cloudinary_api_secret,
+});
+
 const uploadFile = async (req, res, next) => {
-  await prisma.file.create({
-    data: {
-      name: req.file.filename,
-      user: { connect: { id: req.user.id } },
-      folder: { connect: { id: parseInt(req.params.folder_id) } },
-    },
-  });
-  res.redirect(`/folder/${req.params.folder_id}/view`);
+  try {
+    const results = await cloudinary.uploader.upload(
+      `./uploads/${req.user.username}/${req.file.filename}`
+    );
+    await prisma.file.create({
+      data: {
+        name: req.file.filename,
+        user: { connect: { id: req.user.id } },
+        folder: { connect: { id: parseInt(req.params.folder_id) } },
+        url: results.secure_url,
+      },
+    });
+
+    console.log(results);
+    res.redirect(`/folder/${req.params.folder_id}/view`);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const downloadFile = async (req, res, next) => {
