@@ -48,13 +48,11 @@ const folderViewGet = async (req, res, next) => {
     },
   });
 
-  const { files } = folder;
-
   res.render("folderView", {
     folderName: folder.name,
     folderId: folder.id,
     folderCreatorId: folder.userId,
-    files: files,
+    files: folder.files,
   });
 };
 
