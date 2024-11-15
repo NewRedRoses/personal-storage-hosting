@@ -16,8 +16,10 @@
         <%-include("./partials/listAllUserFolders.ejs") %> 
     </div>
     <div class="home-page files-section">
-        <h2 >Your Files</h2>
-        <%- include("./partials/listAllFolderFiles.ejs") %>
+      <% if (files.length > 0) { %> 
+            <h2 >Your Files</h2>
+          <%- include("./partials/listAllFolderFiles.ejs") %>
+        <% } %>
     </div>
     <% } else { %>
     <h1>Please login</h1>
