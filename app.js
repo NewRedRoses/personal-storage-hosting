@@ -51,6 +51,15 @@ app.use("/", homeRouter);
 app.use("/folder", folderRouter);
 app.use("/file", fileRouter);
 
+app.get("/logout", (req, res) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/login");
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Launched on port: ${PORT}`);
 });
