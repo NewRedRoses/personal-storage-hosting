@@ -15,9 +15,9 @@ Below is an overview of the current stage for this project. These instructions a
   - [x] Add ability to open the contents of a folder.
   - [x] Add ability to update folder's names.
   - [x] Add ability to delete a folder and its contents. 
-- [ ] **Add a route to view file details** 
-  - [ ] Add the file's name, size and upload time in the page.
-  - [ ] Add a download button.
+- [x] **Add a route to view file details** 
+  - [x] Add the file's name, size and upload time in the page.
+  - [x] Add a download button.
 - [ ] Add logic to actually upload these files to the "cloud". 
   - Tips:
     - While possible to store these files in the db, the instructors recommend using [Cloudinary](https://cloudinary.com/) or [supabase](https://supabase.com/docs/guides/storage) for the actual hosting.
