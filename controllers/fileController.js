@@ -33,6 +33,9 @@ const filePageGet = async (req, res, next) => {
     where: {
       id: parseInt(req.params.file_id),
     },
+    include: {
+      folder: true,
+    },
   });
   const { size } = fs.statSync(`uploads/mark/${fileDbDetails.name}`);
   fileDbDetails.size = (size / 1000000).toFixed(2);

@@ -9,13 +9,24 @@
 <body>
     <%- include("./partials/navbar.ejs") %>
     <div class="content">
+        <div class="file-details">
+            <h1>File Details</h1>
         <div class="file-name-container">
             <div class="file-name-left">
                 <i data-lucide="file" class="icon" id="file-icon"></i>
                 <label for="file-icon"><b>File Name:</b></label>
             </div>
             <div class="file-name-right">
-                <code><%- file.name %></code>
+                <span><%- file.name %></span>
+            </div>
+        </div>
+        <div class="file-folder-container">
+            <div class="file-folder-left">
+                <i data-lucide="folder" class="icon" id="file-icon"></i>
+                <label for="file-icon"><b>Folder:</b></label>
+            </div>
+            <div class="file-folder-right">
+                <a href=<%-`/folder/${file.folder.id}/view`%> class="folder-item"> <%- file.folder.name %></a>
             </div>
         </div>
         <div class="file-size-container">
@@ -27,10 +38,11 @@
                 <%- file.size %> Mbs
             </div>
         </div>
+        <% console.log(file) %>
         <div class="file-date-container">
         <i data-lucide="calendar" class="icon"></i>
         <label for="weight-icon"><b>Date:</b></label>
-        <span><%- file.upload_date.toLocaleDateString() %></span>
+        <span><%- `${file.upload_date.toLocaleString()}`%></span>
         
     </div>
     <div class="buttons-container">
@@ -45,6 +57,7 @@
                     <i data-lucide="file-down" class="icon">Download</i>
                     Download</button>
             </div>
+        </div>
         </div>
     </div>
 
