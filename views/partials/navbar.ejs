@@ -1,17 +1,17 @@
 <div class="navbar-container">
     <div class="navbar-left">
         <a href="/">
-            <i data-lucide="snail" class="icon"></i>
+            <i data-lucide="snail" class="icon header"></i>
         </a>
     </div>
     <div class="navbar-right">
         <% if (currentUser) { %>
             <a href="/logout">
-                <i data-lucide="log-out" class="icon"></i>
+                <i data-lucide="log-out" class="icon header"></i>
             </a>
         <% } else { %> 
             <a href="/login">
-                <i data-lucide="log-in" class="icon"></i>
+                <i data-lucide="log-in" class="icon header"></i>
             </a>
             <% } %>
     </div>

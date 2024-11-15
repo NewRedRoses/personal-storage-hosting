@@ -160,3 +160,7 @@ li {
 .login-form button {
   max-width: 250px;
 }
+.icon.header {
+  width: 2em;
+  height: auto;
+}
