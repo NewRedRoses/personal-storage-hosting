@@ -8,16 +8,21 @@
   </head>
   <body>
     <%- include("./partials/navbar.ejs") %>
+    <div class="content">
     <% if (currentUser) { %>
-    <h1>Hello, <%= currentUser.username %></h1>
-    <h2>Folders</h2>
+    <div class="home-page folders-section">
+        <h2>Your Folders</h2>
         <%- include("./partials/createFolder.ejs") %> 
         <%-include("./partials/listAllUserFolders.ejs") %> 
-    <h2>All Files</h2>
+    </div>
+    <div class="home-page files-section">
+        <h2 >Your Files</h2>
         <%- include("./partials/listAllFolderFiles.ejs") %>
+    </div>
     <% } else { %>
     <h1>Please login</h1>
     <a href="/login">log in</a>
     <% } %>
+    </div>
   </body>
 </html>

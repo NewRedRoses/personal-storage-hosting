@@ -8,6 +8,7 @@
 </head>
 <body>
     <%- include("./partials/navbar.ejs") %>
+    <div class="content">
     <div class="header-container">
         <h1> 
             <i data-lucide="folder" class="icon"></i>
@@ -52,8 +53,9 @@
   </div>
     
     <%- include("./partials/listAllFolderFiles.ejs") %>
+    </div>
 </body>
 <script src="https://unpkg.com/lucide@latest"></script>
 <script>lucide.createIcons(); </script>
-  <script src="/scripts.js"></script> 
+<script src="/scripts.js"></script> 
 </html>
