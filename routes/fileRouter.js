@@ -5,6 +5,6 @@ const multer = require("multer");
 const { downloadFile, filePageGet } = require("../controllers/fileController");
 
 fileRouter.get("/:file_id/view", filePageGet);
-fileRouter.get("/:file_id/download", downloadFile);
+fileRouter.post("/:file_id/download", downloadFile);
 
 module.exports = fileRouter;
