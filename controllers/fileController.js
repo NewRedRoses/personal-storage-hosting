@@ -42,4 +42,18 @@ const filePageGet = async (req, res, next) => {
   res.render("filePage", { file: fileDbDetails });
 };
 
-module.exports = { uploadFile, downloadFile, filePageGet };
+const deleteFile = async (req, res, next) => {
+  try {
+    const fileToDelete = await prisma.file.delete({
+      where: {
+        id: parseInt(req.params.file_id),
+      },
+    });
+    console.log("deleted file: ", fileToDelete.name);
+    res.redirect("/");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { uploadFile, downloadFile, filePageGet, deleteFile };
