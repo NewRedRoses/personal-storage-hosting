@@ -28,6 +28,7 @@ model File {
   folderId    Int
   folder      Folder   @relation(fields: [folderId], references: [id])
   url         String?
+  public_id   String?
 }
 
 model Folder {
