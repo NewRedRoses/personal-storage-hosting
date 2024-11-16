@@ -165,3 +165,13 @@ li {
   width: 2em;
   height: auto;
 }
+.signup-redirect {
+  font-weight: bold;
+  padding-top: 10px;
+}
+.link {
+  color: #0984e3;
+}
+.link:hover {
+  color: #74b9ff;
+}
