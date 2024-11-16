@@ -152,13 +152,16 @@ li {
   flex-direction: column;
   gap: 10px;
 }
-.login-form {
+.login-form,
+.signup-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 .login-form input,
-.login-form button {
+.login-form button,
+.signup-form input,
+.signup-form button {
   max-width: 250px;
 }
 .icon.header {
@@ -174,4 +177,8 @@ li {
 }
 .link:hover {
   color: #74b9ff;
+}
+.signup-form {
+  display: flex;
+  flex-direction: column;
 }
