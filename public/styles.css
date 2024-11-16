@@ -168,7 +168,8 @@ li {
   width: 2em;
   height: auto;
 }
-.signup-redirect {
+.signup-redirect,
+.login-redirect {
   font-weight: bold;
   padding-top: 10px;
 }
@@ -181,4 +182,18 @@ li {
 .signup-form {
   display: flex;
   flex-direction: column;
+}
+.action-btn {
+  background-color: #b2bec3;
+  color: #2d3436;
+  padding: 2.5px 5px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  font-weight: bold;
+}
+.action-btn:hover {
+  cursor: pointer;
+  background-color: #2d3436;
+  color: #b2bec3;
+  border: 1px solid #b2bec3;
 }
