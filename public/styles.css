@@ -197,3 +197,11 @@ li {
   color: #b2bec3;
   border: 1px solid #b2bec3;
 }
+input {
+  background-color: #dfe6e9;
+  color: #2d3436;
+  border-radius: 5px;
+  border: 1px solid #2d3436;
+  height: fit-content;
+  font-size: 1em;
+}
