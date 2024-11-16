@@ -18,7 +18,7 @@ Below is an overview of the current stage for this project. These instructions a
 - [x] **Add a route to view file details** 
   - [x] Add the file's name, size and upload time in the page.
   - [x] Add a download button.
-- [ ] Add logic to actually upload these files to the "cloud". 
+- [x] Add logic to actually upload these files to the "cloud". 
   - Tips:
     - While possible to store these files in the db, the instructors recommend using [Cloudinary](https://cloudinary.com/) or [supabase](https://supabase.com/docs/guides/storage) for the actual hosting.
     - Save the file URL in the database once uploaded
