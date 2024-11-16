@@ -86,7 +86,7 @@ const deleteFolderPost = async (req, res, next) => {
     });
 
     filesToDelete.forEach((file) => {
-      unlink(`./uploads/${req.user.username}/${file.name}`, (err) => {
+      unlink(`./uploads/${file.name}`, (err) => {
         if (err) throw err;
       });
     });

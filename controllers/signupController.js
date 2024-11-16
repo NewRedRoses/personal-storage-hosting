@@ -14,11 +14,6 @@ const signupRouterPost = async (req, res, next) => {
         password: req.body.password,
       },
     });
-    // Create fs folder
-    const dirPath = `./uploads/${req.body.username}`;
-    if (!fs.existsSync(dirPath)) {
-      fs.mkdirSync(dirPath);
-    }
     res.redirect("/login");
   } catch (error) {
     console.log("Error creating user: ", error);

@@ -2,20 +2,9 @@ const { Router } = require("express");
 
 const folderRouter = Router();
 
-const fileRouter = Router();
 const multer = require("multer");
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, `uploads/${req.user.username}/`);
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + "-" + file.originalname);
-  },
-});
-
-const upload = multer({ storage: storage });
-
+const upload = multer({ dest: "uploads/" });
 const {
   createFolderPost,
   folderViewGet,
@@ -28,5 +17,6 @@ folderRouter.post("/new", createFolderPost);
 folderRouter.get("/:folder_id/view", folderViewGet);
 folderRouter.post("/:folder_id/rename", folderRenamePost);
 folderRouter.post("/:folder_id/upload", upload.single("file"), uploadFile);
+// folderRouter.post("/:folder_id/upload", uploadFile);
 folderRouter.post("/:folder_id/delete", deleteFolderPost);
 module.exports = folderRouter;
