@@ -137,7 +137,7 @@ li {
   cursor: pointer;
 }
 .content {
-  max-width: 500px;
+  max-width: 700px;
   margin: auto;
 }
 .file-item {
@@ -204,4 +204,20 @@ input {
   border: 1px solid #2d3436;
   height: fit-content;
   font-size: 1em;
+}
+.file-grid {
+  display: grid;
+  grid-template-columns: 150px auto;
+  column-gap: 10px;
+  row-gap: 5px;
+}
+.file-grid-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.file-grid-item div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }

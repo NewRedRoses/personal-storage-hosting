@@ -11,38 +11,42 @@
     <div class="content">
         <div class="file-details">
             <h1>File Details</h1>
-        <div class="file-name-container">
+    <div class="file-grid">
+        <div class="file-grid-item">
             <div class="file-name-left">
                 <i data-lucide="file" class="icon" id="file-icon"></i>
                 <label for="file-icon"><b>File Name:</b></label>
             </div>
-            <div class="file-name-right">
-                <span><%- file.name %></span>
-            </div>
         </div>
-        <div class="file-folder-container">
+        <div class="file-grid-item">
+            <span><%- file.name %></span>
+        </div>
+        <div class="file-grid-item">
             <div class="file-folder-left">
                 <i data-lucide="folder" class="icon" id="file-icon"></i>
                 <label for="file-icon"><b>Folder:</b></label>
             </div>
-            <div class="file-folder-right">
-                <a href=<%-`/folder/${file.folder.id}/view`%> class="folder-item"> <%- file.folder.name %></a>
-            </div>
         </div>
-        <div class="file-size-container">
+        <div class="file-grid-item">
+            <a href=<%-`/folder/${file.folder.id}/view`%> class="folder-item"> <%- file.folder.name %></a>
+        </div>
+        <div class="file-grid-item">
             <div class="file-size-left">
                 <i data-lucide="weight" class="icon" id="weight-icon"></i>
                 <label for="weight-icon"><b>Size:</b></label>
             </div>
-            <div class="file-size-right">
-                <%- file.size %> Mbs
-            </div>
         </div>
-        <div class="file-date-container">
-        <i data-lucide="calendar" class="icon"></i>
+        <div class="file-grid-item">
+            <%- file.size %> Mbs
+        </div>
+    <div class="file-grid-item">
+        <div class="file-date-left">
+<i data-lucide="calendar" class="icon"></i>
         <label for="weight-icon"><b>Date:</b></label>
-        <span><%- `${file.upload_date.toLocaleString()}`%></span>
+        </div>
         
+    </div>
+    <div class="file-grid-item"><%- `${file.upload_date.toLocaleString()}`%></div>
     </div>
     <div class="buttons-container">
             <div class="delete-file-btn-container">
